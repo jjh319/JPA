@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<persistence
+        version="2.2"
+        xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <persistence-unit name="AWS-RDS-MySQL">
+
+
+        <properties>
+            <!-- 1. JDBC for AWS-RDS-MySQL8.0.33 -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://awsmysql.clspclgiszur.ap-northeast-2.rds.amazonaws.com:3306/awsmysql" />
+            <property name="javax.persistence.jdbc.user" value="admin" />
+            <property name="javax.persistence.jdbc.password" value="Mysql12345678" />
+
+            <!-- 2. Hibernate ORM Properties -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="false" />
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="H2">
+        <class>org.zerock.myapp.domain.Board</class>
+
+        <properties>
+            <!-- 1. JDBC for H2 -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://0.0.0.0/C:/app/h2/data/test" />
+            <property name="javax.persistence.jdbc.user" value="sa" />
+            <property name="javax.persistence.jdbc.password" value="12" />
+
+            <!-- 2. Hibernate ORM Properties -->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="false" />
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="OCI-OCIDB">
+        <class>org.zerock.myapp.domain.Board</class>
+
+        <properties>
+            <!-- 1. JDBC for OCI-OCIDB -->
+            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@OCIDB20230730_HIGH?TNS_ADMIN=C:/opt/OracleCloudWallet/OCIDB" />
+            <property name="javax.persistence.jdbc.user" value="ADMIN" />
+            <property name="javax.persistence.jdbc.password" value="Oracle12345678" />
+
+            <!-- 2. Hibernate ORM Properties -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="false" />
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="OCI-ATP">
+        <class>org.zerock.myapp.domain.Board</class>
+
+        <properties>
+            <!-- 1. JDBC for OCI-ATP -->
+            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@ATP20191201_HIGH?TNS_ADMIN=C:/opt/OracleCloudWallet/ATP" />
+            <property name="javax.persistence.jdbc.user" value="ADMIN" />
+            <property name="javax.persistence.jdbc.password" value="Oracle123456789" />
+
+            <!-- 2. Hibernate ORM Properties -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="false" />
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+        </properties>
+    </persistence-unit>
+
+</persistence>
